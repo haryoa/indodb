@@ -17,6 +17,8 @@ setup(
     install_requires=[
         "pandas>=1.3.4",
         "rich>=11.2.0",
+        "requests>=2.26.0",
+        "datasets>=1.18.3"
     ],
     setup_requires=[],
 )

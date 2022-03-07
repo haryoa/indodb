@@ -45,10 +45,12 @@ def prepare_cache_data(
     with open(path / "metadata.json", "w+", encoding="utf-8") as file:
         json.dump(data_meta, file, indent=4)
     for key, value in data_meta.get("data", {}).items():
-        print(f"Downloading {key}")
         output_path_file = path / f"{key}.parquet"
 
         if not output_path_file.is_file():
+            print(f"Downloading {key} for {path.name}")
+            print(f"Output to {str(path)}")
+
             temp_file = str(path / f"{key}.tmp")
 
             # Download and output it to temporary location
