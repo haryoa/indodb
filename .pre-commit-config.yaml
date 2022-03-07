@@ -1,0 +1,35 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-toml
+      - id: check-merge-conflict
+  - repo: https://github.com/psf/black
+    rev: 21.12b0
+    hooks:
+      - id: black
+        language_version: python3.8
+        files: '^indodb/.*\.py'
+  - repo: https://github.com/PyCQA/flake8
+    rev: 4.0.1
+    hooks:
+      - id: flake8
+        exclude: tests/
+        files: '^indodb/.*\.py'
+        args: ["--config=.flake8"]
+  - repo: local
+    hooks:
+      - id: pylint
+        name: pylint
+        entry: pylint indodb
+        language: system
+        types: [python]
+        exclude: tests/
+        args: [
+            "-rn", # Only display messages
+            "-sn", # Don't display the score
+            "--disable=duplicate-code,import-error,no-member",
+            "--ignore=tests",
+          ]

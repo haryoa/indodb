@@ -1,0 +1,10 @@
+{
+  "data": {
+    "test": {
+      "source": "https://raw.githubusercontent.com/haryoa/testing_utils/main/test.csv",
+      "source_format": "csv_data",
+      "preprocess": "url_download",
+      "datatype": "labelled_dataset"
+    }
+  }
+}
